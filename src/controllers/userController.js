@@ -27,19 +27,6 @@ const userController = {
             });
         }
 
-        let userInDB = db.User.findAll({where: {email: req.body.email}});
-        
-        if(!userInDB){
-            return res.render('./users/register',{
-                errors:{
-                    email :{
-                        msg: 'Este email ya esta registrado'
-                    }
-                },
-                oldData:req.body,
-            });
-        };
-
         db.User.create({
             full_name: req.body.fullName,
             email: req.body.email,
