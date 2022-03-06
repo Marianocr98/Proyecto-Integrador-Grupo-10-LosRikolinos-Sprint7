@@ -1,13 +1,14 @@
 <header>
     <div class="top-header">
         <!-- imagen logo burger-menu -->
-        <div class="container-burger-cart">
-            <div class="burger-menu">
-                <a><i class="fas fa-bars"></i></a>
-            </div>
-
+            <div class="container-burger-cart">
+                <div class="burger-menu">
+                    <a><i class="fas fa-bars"></i></a>
+                </div>
             <div class="cuenta-registro">
+        <!-- fin de imagen logo burger-menu -->
 
+        <!-- menu para el usuario -->
 
                     <ul class="menu">
                         <% if (locals.isLogged) { %>
@@ -54,6 +55,8 @@
                         <% } %> 
                     </ul>
             </div>
+                    <!-- fin de menu para el usuario -->
+
             <% if (locals.isLogged && locals.userLogged.rol_id != 1) { %>
                 <div class="cart">
                     <a href="/shopping-cart"><i class="fas fa-shopping-cart"></i></a>
@@ -63,8 +66,9 @@
             
         </div>
 
-        <div class="contenedor-buscador-navbar">
+                            <!-- Comienzo del nav  -->
 
+        <div class="contenedor-buscador-navbar">
             <nav class="navegacion">
                 <ul class="menu-nav">
                     <li><a href="/">Inicio</a></li>
@@ -92,18 +96,19 @@
                     </li>
                 </ul>
             </nav>
+                            <!-- Fin del nav  -->
 
+                            <!-- Comienzo del buscador  -->
             <div class="buscador">
                 <form action="/search" method="GET">
                     <input type="text" name="search" placeholder="Buscar productos">
                     <button type="submit">
                         <i class="fas fa-search"></i>
                     </button>
-
                 </form>
             </div>
-
         </div>
+                            <!-- Fin del buscador  -->
 
         <!-- imagen logo  -->
         <div class="logo">

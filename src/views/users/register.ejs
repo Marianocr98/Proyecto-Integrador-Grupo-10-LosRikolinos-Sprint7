@@ -38,11 +38,12 @@
         <!-- Titulo Registro...  -->
         <p class="register-user">Registrarse</p>
         <!-- Comienza el formulario  -->
-        <form action="/register" method="POST" enctype="multipart/form-data">
 
             <section >
 
                 <div class="form-register">
+                    <form class = "form"action="/register" method="POST" enctype="multipart/form-data">
+
                 <!-- Poner nombre y apellido de usuario  -->
                 <label for="fullName"></label>
                 <input 
@@ -91,7 +92,7 @@
                     type="password" 
                     placeholder="Confirmar tu contraseña" 
                     name="confirm" 
-                    id="password" 
+                    id="confirm" 
                     value="<%= locals.oldData ? oldData.confirm : null %>" >
 
                     <%if(locals.errors && errors.confirm) { %>
@@ -140,6 +141,7 @@
     </footer>
 
     <!-- Fin del Footer -->
-    
+    <script src = "/js/ValidationsRegister.js"></script>
+
 </body>
 </html>

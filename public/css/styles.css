@@ -96,7 +96,7 @@ body {
 
 .slider img {
 	width: 100%;
-    height: 200px;
+    height: 100%;
 }    
 
 .slider ul {
@@ -343,7 +343,7 @@ body {
 
     .slider img {
         width: 100%;
-        height: 400px;
+        height: 100%;
     }
 
     .slider ul {
@@ -530,7 +530,7 @@ body {
 
     .slider img {
         width: 100%;
-        height: 550px;
+        height: 100%;
     }
     .cart{
         padding:5px;
@@ -778,7 +778,7 @@ body {
 
     .slider img {
         width: 100%;
-        height: 500px;
+        height: 100%;
     }
 
 
@@ -822,7 +822,7 @@ body {
 
     .slider img {
         width: 100%;
-        height: 500px;
+        height: 100%;
     }
 
     .cuenta-registro {
