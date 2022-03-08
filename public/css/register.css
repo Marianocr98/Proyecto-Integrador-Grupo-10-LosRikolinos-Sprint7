@@ -131,6 +131,7 @@ p{
 	outline: none;
 	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
 }
+
 /* ----- -----  Estilos para Validacion ----- ----- */
 .is-valid {
     border: #198754;
@@ -146,3 +147,13 @@ p{
     text-align: center;
     border-radius: 10px;
   }
+
+  div.errores{
+    color: red;
+    text-align: center;
+    
+}
+
+
+
+

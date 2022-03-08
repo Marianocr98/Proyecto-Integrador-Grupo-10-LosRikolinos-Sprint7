@@ -14,7 +14,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins&family=Roboto&family=Spline+Sans:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css">
-    <link rel="icon" type="image/x-icon" href="../img/products/Logo-Rikolinos.png">
+    
+    <link rel="shortcut icon" type="image/x-icon" href="../../../img/favicon.ico">
 
 </head>
 <body>
@@ -34,20 +35,27 @@
                 <i class="far fa-user-circle"></i>
             </div>
         </section>
-  
-        <!-- Titulo Registro...  -->
-        <p class="register-user">Registrarse</p>
-        <!-- Comienza el formulario  -->
+
+            <!-- Titulo Registro...  -->
+            <p class="register-user">Registrarse</p>
+            <!-- Comienza el formulario  -->
 
             <section >
 
+                <div class="errores">
+                    <ul></ul>
+                </div>
+
                 <div class="form-register">
-                    <form class = "form"action="/register" method="POST" enctype="multipart/form-data">
+
+
+        <form class = "form" action="/register" method="POST" enctype="multipart/form-data" ">
 
                 <!-- Poner nombre y apellido de usuario  -->
                 <label for="fullName"></label>
-                <input 
-                type="text" 
+            
+                <div class="formulario__group-input">
+                <input type="text" 
                 placeholder="Nombre de usuario" 
                 name="fullName" 
                 id="fullName"  
@@ -57,7 +65,8 @@
                         <%= errors.fullName.msg %> 
                     </div>
                     <% } %> 
-                    
+                </div>    
+
             <!-- Poner email de usuario  -->
                 
                 <input 
@@ -116,8 +125,8 @@
 
             </section>
             <!-- Boton de Registro -->
-        <section class="buton">
-            <input type="submit" value="Registrarme">
+            <section class="buton">
+                <input type="submit" value="Registrarme" >
             </section>
 
             <hr class="hr">
