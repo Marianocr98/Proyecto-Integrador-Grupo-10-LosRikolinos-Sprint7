@@ -21,26 +21,36 @@ let buton = document.querySelector('.buton');
         }
     
 
-        if(email.value =="" ){
+        if(email.value ==  "" ){
             errores.push('el campo de email no puede estar vacio') }
         
         if(password.value == "") {
             errores.push('debes completar password')
         }
+        if(confirmPassword.value == "") {
+            errores.push('debes completar la confirmacion del password')
+        }
         else if(password.value >= 8){
             errores.push('el password debe contener al menos 8 caracteres')
         }
+        if(password.value != confirmPassword.value){
+            errores.push('Los password deben coincidir');
+        }
 
-        
+
 
         if (errores.length > 0){
             event.preventDefault();
 
+
             let UlError = document.querySelector("div.errores ul")
             for (let i = 0; i < errores.length; i++) {
                 
-                UlError.innerHTML += "<li>" + errores[i] + "</li>"
-            }
+                
+            UlError.innerHTML = "<li>" + errores.join(', ') + "</li>"
+                
+                
+            } 
         }
     })
 })

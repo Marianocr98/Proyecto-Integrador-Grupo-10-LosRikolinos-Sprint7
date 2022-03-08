@@ -151,7 +151,11 @@ p{
   div.errores{
     color: red;
     text-align: center;
-    
+
+}
+
+div.errores ul {
+    text-align: center;
 }
 
 
