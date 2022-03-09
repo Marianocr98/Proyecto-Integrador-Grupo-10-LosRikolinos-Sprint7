@@ -64,6 +64,20 @@
                 name="fullName" 
                 id="fullName"  
                 value="<%= locals.oldData ? oldData.fullName : null %>">
+
+                <!-- Errores -->
+                <div class="error">
+                    <small class="text-danger errorFN"></small>
+                </div>
+                <% if (typeof errors != 'undefined') { %>
+                    <% for( let i = 0; i < errors.length; i++ ) { %>
+                        <% if (errors[i].param == 'fullName') { %>
+                            <small class="text-danger"> <%= errors[i].msj %> </small>
+                         
+                        <% } %>
+                 
+                <% } %>
+                <% } %>
                 <%if(locals.errors && errors.fullName) { %>
                     <div class="text-danger">
                         <%= errors.fullName.msg %> 
@@ -80,6 +94,20 @@
                 id="email" 
                 value="<%= locals.oldData ? oldData.email : null %>">
 
+                <!-- Errores -->
+                <div class="error">
+                    <small class="text-danger errorEmail"></small>
+                </div>
+                <% if (typeof errors != 'undefined') { %>
+                    <% for( let i = 0; i < errors.length; i++ ) { %>
+                        <% if (errors[i].param == 'email') { %>
+                            <small class="text-danger"> <%= errors[i].msj %> </small>
+                         
+                        <% } %>
+                 
+                <% } %>
+                <% } %>
+
                 <%if(locals.errors && errors.email) { %>
                     <div class="text-danger">
                         <%= errors.email.msg %> 
@@ -93,6 +121,20 @@
                     name="password" 
                     id="password" 
                     value="<%= locals.oldData ? oldData.password : null %>" >
+
+                    <!-- Errores -->
+                    <div class="error">
+                        <small class="text-danger errorPassword"></small>
+                    </div>
+                    <% if (typeof errors != 'undefined') { %>
+                        <% for( let i = 0; i < errors.length; i++ ) { %>
+                            <% if (errors[i].param == 'password') { %>
+                                <small class="text-danger"> <%= errors[i].msj %> </small>
+                             
+                            <% } %>
+                     
+                    <% } %>
+                    <% } %>
 
                     <%if(locals.errors && errors.password) { %>
                         <div class="text-danger">
@@ -108,6 +150,20 @@
                     id="confirm" 
                     value="<%= locals.oldData ? oldData.confirm : null %>" >
 
+                    <!-- Errores -->
+                    <div class="error">
+                        <small class="text-danger errorConfirm"></small>
+                    </div>
+                    <% if (typeof errors != 'undefined') { %>
+                        <% for( let i = 0; i < errors.length; i++ ) { %>
+                            <% if (errors[i].param == 'confirm') { %>
+                                <small class="text-danger"> <%= errors[i].msj %> </small>
+                             
+                            <% } %>
+                     
+                    <% } %>
+                    <% } %>
+
                     <%if(locals.errors && errors.confirm) { %>
                         <div class="text-danger">
                             <%= errors.confirm.msg %> 
@@ -120,6 +176,20 @@
                     name="avatar" 
                     id="avatar" 
                     value="<%= locals.oldData ? oldData.avatar : null %>">
+
+                    <!-- Errores -->
+                    <div class="error">
+                        <small class="text-danger errorAvatar"></small>
+                    </div>
+                    <% if (typeof errors != 'undefined') { %>
+                        <% for( let i = 0; i < errors.length; i++ ) { %>
+                            <% if (errors[i].param == 'avatar') { %>
+                                <small class="text-danger"> <%= errors[i].msj %> </small>
+                             
+                            <% } %>
+                     
+                    <% } %>
+                    <% } %>
                     <% if (locals.errors && errors.avatar) { %>
                         <div class="text-danger">
                             <%= errors.avatar.msg %>

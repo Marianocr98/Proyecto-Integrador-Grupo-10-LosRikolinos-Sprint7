@@ -2,60 +2,65 @@ window.addEventListener('load', function(){
 
 let form = document.querySelector('.form');
 let fullName = document.querySelector('#fullName');
+let errorFN = document.querySelector(".errorFN");
 let email = document.querySelector('#email');
+let errorEmail = document.querySelector(".errorEmail");
 let password = document.querySelector('#password');
+let errorPassword = document.querySelector(".errorPassword");
 let confirmPassword = document.querySelector('#confirm');
+let errorConfirm = document.querySelector(".errorConfirm");
+let avatar = document.querySelector('#avatar');
+let errorAvatar = document.querySelector(".errorAvatar");
 let buton = document.querySelector('.buton');
 
+buton.addEventListener('click', function(e){
+    e.preventDefault();
+    let errors = {}
 
-    form.addEventListener("submit", function(event){
-    
-    
-
-        let errores = [];
-
-        if(fullName.value == ''){
-            errores.push('el campo de nombre no puede estar vacio')
-        }else if( fullName.value.length < 3){
-            errores.push("el campo de nombre debe tener al menos 3 caracteres")
+    //fullName
+    if(fullName.value == ''){
+        errors.fullName = 'Este campo debe estar completo'
+    }else if( fullName.value.length < 2){
+        errors.fullName = 'El usuario debe tener al menos 2 caracteres'   
         }
-    
-
-        if(email.value ==  "" ){
-            errores.push('el campo de email no puede estar vacio') }
-        
-        if(password.value == "") {
-            errores.push('debes completar password')
+    //email
+    if(email.value == ''){
+        errors.email = 'Este campo debe estar completo'
+    }else if(/\b[a-z0-9-_.]+@[a-z0-9-_.]+(\.[a-z0-9]+)+/i.test(email.value) != true){
+        errors.email = 'El email debe ser válido'
+    }
+    //password
+    if(password.value == ''){
+        errors.password = 'Este campo debe estar completo'
+    }else if(password.value.length <= 8){
+        errors.password = 'La contraseña debe tener al menos 8 caracteres'   
         }
-        if(confirmPassword.value == "") {
-            errores.push('debes completar la confirmacion del password')
-        }
-        else if(password.value >= 8){
-            errores.push('el password debe contener al menos 8 caracteres')
-        }
-        if(password.value != confirmPassword.value){
-            errores.push('Los password deben coincidir');
-        }
+    //confirmPassword
+    if(confirmPassword.value == ''){
+        errors.confirmPassword = 'Confirmar contraseña'
+    }else if(password.value != confirmPassword.value){
+        errors.confirmPassword = 'Las contraseñas deben coincidir'
+    }
+    //avatar
+    if(avatar.value == ''){
+        errors.avatar = 'Debe subir una imagen'
+    }else if(/(.jpg|.jpeg|.png|.gif|bmp|tiff)$/i.test(avatar.value) != true){
+        errors.avatar = 'Este archivo no es válido'
+    }
 
+    if(Object.keys(errors).length >= 1){
+        errorFN.innerText = (errors.fullName) ? errors.fullName : '';
 
+        errorEmail.innerText = (errors.email) ? errors.email : '';
 
-        if (errores.length > 0){
-            event.preventDefault();
+        errorPassword.innerText = (errors.password) ? errors.password : '';
 
+        errorConfirm.innerText = (errors.confirmPassword) ? errors.confirmPassword : '';
 
-            let UlError = document.querySelector("div.errores ul")
-            for (let i = 0; i < errores.length; i++) {
-                
-                
-            UlError.innerHTML = "<li>" + errores.join(', ') + "</li>"
-                
-                
-            } 
-        }
-    })
+        errorAvatar.innerText = (errors.avatar) ? errors.avatar : '';
+    }else{
+        form.submit();
+    }
 })
 
-
-
-
-
+})
