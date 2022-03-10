@@ -40,11 +40,25 @@
         
         <p class="login-user">Iniciar sesión</p>
         <!-- inicio de sesion  -->
-        <form action="/login" method="POST"> 
+        <form class="form" action="/login" method="POST"> 
             <!-- Poner nombre de usuario  -->
             <div class="padre-input">
                 <label for="nombre"></label>
-                <input type="email" placeholder="Usuario o e-mail" name="email" id="nombre" class="form-control">
+                <input type="email" placeholder="Tu e-mail" name="email" id="nombre" class="form-control">
+
+                <!-- Errores -->
+                <div class="error">
+                    <small class="text-danger errorEmail"></small>
+                </div>
+                <% if (typeof errors != 'undefined') { %>
+                    <% for( let i = 0; i < errors.length; i++ ) { %>
+                        <% if (errors[i].param == 'email') { %>
+                            <small class="text-danger"> <%= errors[i].msj %> </small>
+                         
+                        <% } %>
+                 
+                <% } %>
+                <% } %>
                 <% if (locals.errors && errors.email) { %>
                     <div class="text-danger"> 
                         <%= errors.email.msg  %> 
@@ -54,7 +68,21 @@
                 <!-- Poner contraseña  -->
             <div class="padre-input">
                 <label for="password"></label>
-                <input type="password" placeholder="Contraseña" name="password" id="password">
+                <input type="password" placeholder="Tu contraseña" name="password" id="password">
+
+                <!-- Errores -->
+                <div class="error">
+                    <small class="text-danger errorPassword"></small>
+                </div>
+                <% if (typeof errors != 'undefined') { %>
+                    <% for( let i = 0; i < errors.length; i++ ) { %>
+                        <% if (errors[i].param == 'password') { %>
+                            <small class="text-danger"> <%= errors[i].msj %> </small>
+                         
+                        <% } %>
+                 
+                <% } %>
+                <% } %>
             </div>
             <!-- Boton de inicio de sesión  -->
             <div class="olvidaste-contra">
@@ -82,6 +110,8 @@
     <!-- Fin del Main -->
 
     <%- include('../partials/footer-user')  %> 
+
+    <script src = "/js/ValidationsLogin.js"></script>
     <script src = "js/index_Dom.js" type = "module"></script>
     <script src = "js/Menu.js" type = "module"></script>
 </body>
