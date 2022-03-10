@@ -84,3 +84,37 @@ h2{
     width: 45%;
 }
 }
+
+.errorTitulo{
+    color: red;
+    font-size: 17px;
+}
+
+.errorPrice{
+    color: red;
+    font-size: 17px;
+}
+
+.errorImgProductos{
+    color: red;
+    font-size: 17px;
+    text-align: center;
+}
+
+.errorDescription{
+    color: red;
+    font-size: 17px;
+}
+
+.boxImg{
+    display: flex;
+    flex-direction: column;
+}
+
+#file {
+    width: 30rem;
+}
+
+#price{
+    width: 8rem;
+}

@@ -15,7 +15,7 @@ let buton = document.querySelector('.buton');
 
 buton.addEventListener('click', function(e){
     e.preventDefault();
-    let errors = {}
+    let errors = []
 
     //fullName
     if(fullName.value == ''){

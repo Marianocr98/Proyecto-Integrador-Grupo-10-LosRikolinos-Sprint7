@@ -67,11 +67,12 @@
                     <% for( let i = 0; i < errors.length; i++ ) { %>
                         <% if (errors[i].param == 'fullName') { %>
                             <small class="text-danger"> <%= errors[i].msj %> </small>
-                         
+                        
                         <% } %>
-                 
+                
                 <% } %>
                 <% } %>
+                
                 <%if(locals.errors && errors.fullName) { %>
                     <div class="text-danger">
                         <%= errors.fullName.msg %> 
