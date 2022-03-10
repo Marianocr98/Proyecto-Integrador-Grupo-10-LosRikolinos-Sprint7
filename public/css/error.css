@@ -1,0 +1,15 @@
+.img h2{
+    font-size: 2rem;
+    margin: 4rem 0px 4rem 0px;
+    color: rgb(250, 166, 9);
+}
+
+.img{
+    text-align: center;
+}
+
+.p {
+    margin-top: 3rem;
+    font-size: 2rem;
+    color: rgb(250, 166, 9);
+}

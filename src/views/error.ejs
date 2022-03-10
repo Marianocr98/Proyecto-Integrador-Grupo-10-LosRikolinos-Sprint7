@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,38 +10,29 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <title>Not-found</title>
+    <title>Not-Found</title>
     <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Indie+Flower&family=Pacifico&family=Permanent+Marker&family=Roboto:ital,wght@1,100&family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat&family=Indie+Flower&family=Pacifico&family=Permanent+Marker&family=Roboto:ital,wght@1,100&family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css">
-
-
-    
-    <!--  -->
-    <link rel="shortcut icon" type="image/x-icon" href="../../../img/favicon.ico">
+    <link rel="stylesheet" href="/css/error.css">
 
 </head>
 <body>
-<!-- Inicio del Header -->
 
-<%- include('./partials/header')%> 
+    <%- include('./partials/header.ejs')  %> 
 
-<!-- Fin del Header -->
-<style>
-    h1, h2{
-        font-size: 50px;
-        margin-left: 50px;
+    <div class="img">
+        <h2>NO SE ENCONTRO LO QUE BUSCABAS!!!</h2>
     
-    }
-</style>
+        <iframe src="https://giphy.com/embed/qDolXP52Oj5AI" width="480" height="195" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 
-    <i><h1 style="color:red"><%= message %></h1></i>
-    <i><h2 style="color:red"><%= error.status %></h2></i>
-    <pre><%= error.stack %></pre>
+        <p class="p">404-NotFound</p>
 
-    <!-- Inicio del Footer -->
+    </div>
+
     
-    <%- include('./partials/footer')  %> 
-
-    <!-- Fin del footer -->
+        <%- include('./partials/footer.ejs')  %> 
 </body>
+</html>
+        
+

@@ -8,6 +8,9 @@ const cookies = require('cookie-parser');
 
 app.use(express.static(path.join(__dirname, '../public')));
 
+// catch 404 and forward to error handler
+
+
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
 
@@ -25,6 +28,8 @@ app.use(cookies());
 
 app.use(userLoggedMiddleware);
 
+// catch 404 and forward to error handler
+
 
 /*Para procesar los formularios */
 app.use(express.urlencoded({extended:false}));
@@ -38,10 +43,7 @@ app.set('views', path.resolve(__dirname, 'views'));
 const methodOverride = require('method-override')
 app.use(methodOverride('_method'));
 
-// catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-// 	next(createError(404));
-//   });
+
 
   // error handler
 app.use(function(err, req, res, next) {
@@ -71,5 +73,8 @@ app.listen(process.env.PORT || 3001, ()=>{
     console.log('Servidor funcionando puerto 3000');
 });
 
+app.use((req,res, next) =>{
+	res.status(404).render("error")
+})
 
 
