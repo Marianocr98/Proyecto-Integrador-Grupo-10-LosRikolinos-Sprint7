@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="/css/productEdition.css">
 
     <link rel="stylesheet" href="/css/styles.css">
-    <link rel="icon" type="image/x-icon" href="../img/products/Logo-Rikolinos.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../img/favicon.ico">
+
+
     
 </head>
 <body>
@@ -27,17 +29,45 @@
     
     <main>
         <h2>Formulario de edicion</h2>
-        <form action="/productEdition/<%=producto.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <form action="/productEdition/<%=producto.id%>?_method=PUT" method="POST" enctype="multipart/form-data" class="form">
             
             <div class="form-edit-products">
                 <div class="title-form">
                     <label for="title">Titulo</label>
-                    <input type="text" name="title" value="<%=producto.title%>" id = "name">
+                    <input type="text" name="title" value="<%=producto.title%>" id = "title" > 
+                    <!-- Errores -->
+                <div class="error">
+                    <small class="text-danger errorTitulo"></small>
+                </div>
+                <% if (typeof errors != 'undefined') { %>
+                    <% for( let i = 0; i < errors.length; i++ ) { %>
+                        <% if (errors[i].param == 'title') { %>
+                            <small class="text-danger"> <%= errors[i].msj %> </small>
+                        
+                        <% } %>
+                
+                <% } %>
+                <% } %>
                 </div>
                 
                 <div class="price-form">
                     <label for="price">Precio</label>
                     <input type="text" name="price" value="<%= producto.price %> " id ="price">
+
+                    <!-- Errores -->
+                <div class="error">
+                    <small class="text-danger errorPrice"></small>
+                </div>
+                <% if (typeof errors != 'undefined') { %>
+                    <% for( let i = 0; i < errors.length; i++ ) { %>
+                        <% if (errors[i].param == 'price') { %>
+                            <small class="text-danger"> <%= errors[i].msj %> </small>
+                        
+                        <% } %>
+                
+                <% } %>
+                <% } %>
+
                 </div>
 
                 <div class="category-form">
@@ -53,20 +83,51 @@
                     </select>
                 </div>
 
-                <div class="file-submit-product">
-                    <label for="imgProductos">Imagen del producto:</label>
-                    <input type="file" name="imgProductos" id ="file">
-                </div>
+                        <div class="file-submit-product boxImg">
+                            <label for="imgProductos">Imagen del producto:</label>
+                            <input type="file" name="imgProductos" id ="file">
 
-                <div class="description-submit-products">
-                    <label for="description">Descripción:</label> 
+                            <!-- Errores -->
+                            <div class="error">
+                            <small class="text-danger errorImgProductos"></small>
+                            </div>
+                            <% if (typeof errors != 'undefined') { %>
+                            <% for( let i = 0; i < errors.length; i++ ) { %>
+                                <% if (errors[i].param == 'file') { %>
+                                    <small class="text-danger"> <%= errors[i].msj %> </small>
+                                
+                                <% } %>
+                        
+                            <% } %>
+                            <% } %>
+
+                        </div>
+
+                <div class="description-submit-products" >
+                    <label for="description" >Descripción:</label> 
                     
                     <textarea name="description" id="description" cols="0" rows="6"> <%=producto.description%> </textarea>
+
+                    <!-- Errores -->
+                <div class="error">
+                    <small class="text-danger errorDescription"></small>
+                </div>
+                <% if (typeof errors != 'undefined') { %>
+                    <% for( let i = 0; i < errors.length; i++ ) { %>
+                        <% if (errors[i].param == 'description') { %>
+                            <small class="text-danger"> <%= errors[i].msj %> </small>
+                        
+                        <% } %>
+                
+                <% } %>
+                <% } %>
+
+
                 </div>
 
             </div>
 
-            <div class="button-edit-submit">
+            <div class="button-edit-submit button">
                 <button type="submit">Editar producto</button>
             </div> 
 
@@ -81,6 +142,11 @@
     <%- include('../partials/footer')  %> 
 
     <!-- Fin del Footer -->
+
+    <!--Scripts-->
+    <script src = "/js/ValidationsNewProducts.js"></script>
+    <script src = "js/index_Dom.js" type = "module"></script>
+    <script src = "js/Menu.js" type = "module"></script>
 
 </body>
 </html>

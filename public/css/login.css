@@ -155,3 +155,13 @@ p{
         font-size: 20px;
     }
 }
+
+.errorEmail{
+    color: red;
+    font-size: 18px;
+}
+
+.errorPassword{
+    color: red;
+    font-size: 18px;
+}

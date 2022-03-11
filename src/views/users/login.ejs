@@ -8,11 +8,15 @@
     <link rel="stylesheet" href="/css/login.css">
     <link rel="stylesheet" href="/views/register.html">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.1.3/hamburgers.min.css" integrity="sha512-+mlclc5Q/eHs49oIOCxnnENudJWuNqX5AogCiqRBgKnpoplPzETg2fkgBFVC6WYUVxYYljuxPNG8RE7yBy1K+g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/styles.css">
+
     <title>Los Rikolinos - login</title>
     <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Indie+Flower&family=Pacifico&family=Permanent+Marker&family=Roboto:ital,wght@1,100&family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat&family=Indie+Flower&family=Pacifico&family=Permanent+Marker&family=Roboto:ital,wght@1,100&family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css">
-    <link rel="icon" type="image/x-icon" href="../img/products/Logo-Rikolinos.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../img/favicon.ico">
+
 </head>
 
 <body>
@@ -36,11 +40,25 @@
         
         <p class="login-user">Iniciar sesión</p>
         <!-- inicio de sesion  -->
-        <form action="/login" method="POST"> 
+        <form class="form" action="/login" method="POST"> 
             <!-- Poner nombre de usuario  -->
             <div class="padre-input">
                 <label for="nombre"></label>
-                <input type="email" placeholder="Usuario o e-mail" name="email" id="nombre" class="form-control">
+                <input type="email" placeholder="Tu e-mail" name="email" id="nombre" class="form-control">
+
+                <!-- Errores -->
+                <div class="error">
+                    <small class="text-danger errorEmail"></small>
+                </div>
+                <% if (typeof errors != 'undefined') { %>
+                    <% for( let i = 0; i < errors.length; i++ ) { %>
+                        <% if (errors[i].param == 'email') { %>
+                            <small class="text-danger"> <%= errors[i].msj %> </small>
+                        
+                        <% } %>
+
+                <% } %>
+                <% } %>
                 <% if (locals.errors && errors.email) { %>
                     <div class="text-danger"> 
                         <%= errors.email.msg  %> 
@@ -50,11 +68,26 @@
                 <!-- Poner contraseña  -->
             <div class="padre-input">
                 <label for="password"></label>
-                <input type="password" placeholder="Contraseña" name="password" id="password">
+                <input type="password" placeholder="Tu contraseña" name="password" id="password">
+
+                <!-- Errores -->
+                <div class="error">
+                    <small class="text-danger errorPassword"></small>
+                </div>
+                <% if (typeof errors != 'undefined') { %>
+                    <% for( let i = 0; i < errors.length; i++ ) { %>
+                        <% if (errors[i].param == 'password') { %>
+                            <small class="text-danger"> <%= errors[i].msj %> </small>
+                         
+                        <% } %>
+                 
+                <% } %>
+                <% } %>
             </div>
             <!-- Boton de inicio de sesión  -->
             <div class="olvidaste-contra">
                 <a href="">olvidaste tu contraseña?</a>
+                
             </div>
 
             <section class="buton">
@@ -78,6 +111,9 @@
     <!-- Fin del Main -->
 
     <%- include('../partials/footer-user')  %> 
-    
+
+    <script src = "/js/ValidationsLogin.js"></script>
+    <script src = "js/index_Dom.js" type = "module"></script>
+    <script src = "js/Menu.js" type = "module"></script>
 </body>
 </html>
