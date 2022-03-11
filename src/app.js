@@ -1,5 +1,4 @@
 /* EXPRESS*/
-var createError = require('http-errors');
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -31,7 +30,7 @@ app.use(userLoggedMiddleware);
 // catch 404 and forward to error handler
 
 
-/*Para procesar los formularios */
+/*Para procesar los FORMULARIOS */
 app.use(express.urlencoded({extended:false}));
 
 /* EJS */ 
@@ -69,7 +68,7 @@ app.use('/', products);
 
 
 /*Server Funcionando*/
-app.listen(process.env.PORT || 3001, ()=>{
+app.listen(process.env.PORT || 3000, ()=>{
     console.log('Servidor funcionando puerto 3000');
 });
 

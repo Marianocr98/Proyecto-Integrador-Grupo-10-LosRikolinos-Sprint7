@@ -2,6 +2,10 @@ const fs = require('fs');
 const path = require('path');
 const db = require('../database/models');
 const sequelize = db.sequelize;
+const {validationResult} = require('express-validator');
+
+const Category = db.Category
+const Product = db.Product
 
 
 const productController = {
@@ -36,7 +40,37 @@ const productController = {
     },
 
     createProduct:(req,res)=>{
-        db.Product.create({
+        const resultValidation = validationResult(req);
+
+        if(resultValidation.isEmpty()){
+            let product = {
+                title: req.body.title,
+                image: req.file.filename,
+                description: req.body.description,
+                price: Number(req.body.price),
+                section: "productos",
+                category_id: req.body.category
+            }
+            if(req.file){
+                product.image = req.file.filename
+            }
+            Product.create(product)
+            .then(()=>{
+                return res.redirect('/listOfProducts')
+            })
+        }else{
+            let categories = Category.findAll();
+
+            Promise
+            .all([categories])
+            .then(([categories]) =>{
+                res.render('./admin/admin', 
+                {user: req.session.user, 
+                    categories, 
+                    errors : resultValidation.mapped()})
+            })
+        }
+        /*db.Product.create({
         title: req.body.title,
         image: req.file.filename,
         description: req.body.description,
@@ -47,7 +81,7 @@ const productController = {
         .then(()=>{
             res.redirect('/listOfProducts')
         })
-        .catch(error => res.send(error))
+        .catch(error => res.send(error))*/
     },
 
 
@@ -65,6 +99,9 @@ const productController = {
     },
 
     edit : (req,res)=>{
+
+        const resultValidation = validationResult(req);
+
             let product = db.Product.findByPk(req.params.id);
             db.Product.update({
             title: req.body.title,

@@ -78,6 +78,9 @@ body{
     color: #fff;
 
 }
+.text-danger{
+    color:rgb(236, 29, 29);
+}
 .button-admin{
     display: flex;
     justify-content: space-around;
