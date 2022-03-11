@@ -40,7 +40,7 @@ router.post('/productos/createProduct',  multerUpload.single('imgProductos'), pr
 router.get('/productEdition/:id', guestMiddleware , authMiddleware, productController.productEdition);
 
 //  --------EDICION DE UN PRODUCTO--------
-router.put('/productEdition/:id', multerUpload.single('imgProductos'), productController.edit);
+router.put('/productEdition/:id', multerUpload.single('imgProductos'), productValidation, productController.edit);
 
 //  --------ELIMINACION DE UN PRODUCTO--------
 router.delete('/productDelete/:id', productController.delete);

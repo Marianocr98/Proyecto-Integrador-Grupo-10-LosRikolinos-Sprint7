@@ -31,7 +31,7 @@ h2{
     flex-direction: column;
     margin: 20px 0;
 }
-#name,#price ,#category, #avatar, #price,#file{
+#title,#price ,#category, #avatar, #price,#file{
     border-radius: 15px;
     color: #fff;
     border: 1px solid rgb(255, 255, 255);

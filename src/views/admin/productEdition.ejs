@@ -34,8 +34,17 @@
             <div class="form-edit-products">
                 <div class="title-form">
                     <label for="title">Titulo</label>
-                    <input type="text" name="title" value="<%=producto.title%>" id = "title" > 
+                    <input type="text" name="title" value="<%=producto.title%>" id = "title" >
+                    
                     <!-- Errores -->
+
+                    <% if (locals.errors && errors.title) { %>
+                        <div class="text-danger">
+                            <p><%= errors.title.msg %></p>
+                        </div>
+                    <% } %>
+                    
+                    <!-- Errores front-->
                 <div class="error">
                     <small class="text-danger errorTitulo"></small>
                 </div>
@@ -55,6 +64,13 @@
                     <input type="text" name="price" value="<%= producto.price %> " id ="price">
 
                     <!-- Errores -->
+                    <% if (locals.errors && errors.price) { %>
+                        <div class="text-danger">
+                            <p><%= errors.price.msg %></p>
+                        </div>
+                    <% } %>
+
+                    <!-- Errores front -->
                 <div class="error">
                     <small class="text-danger errorPrice"></small>
                 </div>
@@ -88,6 +104,13 @@
                             <input type="file" name="imgProductos" id ="file">
 
                             <!-- Errores -->
+                    <% if (locals.errors && errors.imgProductos) { %>
+                        <div class="text-danger">
+                            <p><%= errors.imgProductos.msg %></p>
+                        </div>
+                    <% } %>
+
+                            <!-- Errores front -->
                             <div class="error">
                             <small class="text-danger errorImgProductos"></small>
                             </div>
@@ -109,6 +132,13 @@
                     <textarea name="description" id="description" cols="0" rows="6"> <%=producto.description%> </textarea>
 
                     <!-- Errores -->
+                <% if (locals.errors && errors.description) { %>
+                    <div class="text-danger">
+                        <p><%= errors.description.msg %></p>
+                    </div>
+                <% } %>
+
+                    <!-- Errores front-->
                 <div class="error">
                     <small class="text-danger errorDescription"></small>
                 </div>

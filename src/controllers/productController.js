@@ -102,7 +102,8 @@ const productController = {
 
         const resultValidation = validationResult(req);
 
-            let product = db.Product.findByPk(req.params.id);
+       let product = db.Product.findByPk(req.params.id);
+       if(resultValidation.isEmpty()){
             db.Product.update({
             title: req.body.title,
             description: req.body.description,
@@ -116,6 +117,21 @@ const productController = {
         .then( () => {
             res.redirect('/listOfProducts');
         })
+    }else{
+        let categories = Category.findAll();
+
+        let producto = Product.findAll();
+
+        Promise
+        .all([producto, categories])
+        .then(([producto, categories]) =>{
+            res.render('./admin/productEdition', 
+            {user: req.session.user,
+                producto,
+                categories, 
+                errors : resultValidation.mapped()})
+        })
+    }
     },
 
     delete : (req,res)=>{
