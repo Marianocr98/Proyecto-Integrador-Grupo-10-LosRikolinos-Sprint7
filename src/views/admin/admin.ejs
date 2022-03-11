@@ -24,7 +24,7 @@
             <h1 class="title">Subir productos</h1>
         </div>
 
-        <form action="/productos/createProduct" method="POST" enctype="multipart/form-data">
+        <form class = "form" action="/productos/createProduct" method="POST" enctype="multipart/form-data">
 
             <div class="padre-create">
 
@@ -42,7 +42,7 @@
 
                     <!-- Errores front -->
                 <div class="error">
-                    <small class="text-danger errorTitulo"></small>
+                    <small class="text-danger errorTitle"></small>
                 </div>
                 <% if (typeof errors != 'undefined') { %>
                     <% for( let i = 0; i < errors.length; i++ ) { %>
@@ -104,7 +104,7 @@
                     
                     <!-- Errores front -->
                     <div class="error">
-                        <small class="text-danger errorImgProductos"></small>
+                        <small class="text-danger errorFile"></small>
                         </div>
                         <% if (typeof errors != 'undefined') { %>
                         <% for( let i = 0; i < errors.length; i++ ) { %>
@@ -146,9 +146,7 @@
 
                 <div class="button-admin">
     
-                    <button  type="submit">
-                        Crear Producto
-                    </button>
+                    <button  type="submit">Crear Producto</button>
 
                 </div>
 
@@ -160,6 +158,11 @@
     </main>
 
     <%- include('../partials/footer-user') %> 
+
+    <!--Scripts-->
+    <script src = "/js/validationsProduct.js"></script>
+    <script src = "js/index_Dom.js" type = "module"></script>
+    <script src = "js/Menu.js" type = "module"></script>
     
 </body>
 </html>
