@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <title>Los Rikolinos - Detalle del producto</title>
+    <title>Vista de edicion de productos</title>
     <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Indie+Flower&family=Pacifico&family=Permanent+Marker&family=Roboto:ital,wght@1,100&family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat&family=Indie+Flower&family=Pacifico&family=Permanent+Marker&family=Roboto:ital,wght@1,100&family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
     
@@ -34,8 +34,17 @@
             <div class="form-edit-products">
                 <div class="title-form">
                     <label for="title">Titulo</label>
-                    <input type="text" name="title" value="<%=producto.title%>" id = "title" > 
+                    <input type="text" name="title" value="<%=producto.title%>" id = "title" >
+                    
                     <!-- Errores -->
+
+                    <% if (locals.errors && errors.title) { %>
+                        <div class="text-danger">
+                            <p><%= errors.title.msg %></p>
+                        </div>
+                    <% } %>
+                    
+                    <!-- Errores front-->
                 <div class="error">
                     <small class="text-danger errorTitulo"></small>
                 </div>
@@ -55,6 +64,13 @@
                     <input type="text" name="price" value="<%= producto.price %> " id ="price">
 
                     <!-- Errores -->
+                    <% if (locals.errors && errors.price) { %>
+                        <div class="text-danger">
+                            <p><%= errors.price.msg %></p>
+                        </div>
+                    <% } %>
+
+                    <!-- Errores front -->
                 <div class="error">
                     <small class="text-danger errorPrice"></small>
                 </div>
@@ -88,6 +104,13 @@
                             <input type="file" name="imgProductos" id ="file">
 
                             <!-- Errores -->
+                    <% if (locals.errors && errors.imgProductos) { %>
+                        <div class="text-danger">
+                            <p><%= errors.imgProductos.msg %></p>
+                        </div>
+                    <% } %>
+
+                            <!-- Errores front -->
                             <div class="error">
                             <small class="text-danger errorImgProductos"></small>
                             </div>
@@ -109,6 +132,13 @@
                     <textarea name="description" id="description" cols="0" rows="6"> <%=producto.description%> </textarea>
 
                     <!-- Errores -->
+                <% if (locals.errors && errors.description) { %>
+                    <div class="text-danger">
+                        <p><%= errors.description.msg %></p>
+                    </div>
+                <% } %>
+
+                    <!-- Errores front-->
                 <div class="error">
                     <small class="text-danger errorDescription"></small>
                 </div>
@@ -144,7 +174,7 @@
     <!-- Fin del Footer -->
 
     <!--Scripts-->
-    <script src = "/js/ValidationsNewProducts.js"></script>
+    <script src = '/js/ValidationsEditProducts.js'></script>
     <script src = "js/index_Dom.js" type = "module"></script>
     <script src = "js/Menu.js" type = "module"></script>
 

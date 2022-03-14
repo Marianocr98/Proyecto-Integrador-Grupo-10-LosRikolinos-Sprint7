@@ -5,6 +5,11 @@ const productController = require('../controllers/productController')
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
 
+const {body} = require('express-validator');
+
+const productValidation = require('../middlewares/productValidation');
+
+
 // -----------EN PROCESO------------------------
 router.get('/shopping-cart', productController.shoppingCart);
 
@@ -25,17 +30,17 @@ router.get('/products/:id', productController.productDetail);
 // ----RUTA DE LA BARRA DEL BUSCADOR---- 
 router.get('/search', productController.search);
 
-//  --------VISTA DEL FORMULARIO DE CREACION - ADMIN--------
-router.get('/createView', guestMiddleware , authMiddleware ,productController.registroProduct)
+//  --------VISTA DEL FORMULARIO DE CREACION - ADMIN --------
+router.get('/createView', guestMiddleware , authMiddleware ,productController.registroProduct);
 
 // Acción de creación (a donde se envía el formulario)-check
-router.post('/productos/createProduct',  multerUpload.single('imgProductos'), productController.createProduct)
+router.post('/productos/createProduct',  multerUpload.single('imgProductos'), productValidation , productController.createProduct)
 
-//  --------VISTA DEL FORMULARIO DE EDICION- ADMIN--------
+//  --------VISTA DEL FORMULARIO DE EDICION- ADMIN --------
 router.get('/productEdition/:id', guestMiddleware , authMiddleware, productController.productEdition);
 
 //  --------EDICION DE UN PRODUCTO--------
-router.put('/productEdition/:id', multerUpload.single('imgProductos'), productController.edit);
+router.put('/productEdition/:id', multerUpload.single('imgProductos'), productValidation, productController.edit);
 
 //  --------ELIMINACION DE UN PRODUCTO--------
 router.delete('/productDelete/:id', productController.delete);
