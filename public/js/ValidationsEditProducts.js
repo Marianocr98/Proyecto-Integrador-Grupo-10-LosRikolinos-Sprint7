@@ -28,7 +28,7 @@ window.addEventListener('load', function(){
         //File
         if(file.value == ''){
             errors.file = 'Debe subir una imagen'
-        }else if(/(.jpg|.jpeg|.png|.gif|bmp|tiff)$/i.test(file.value) != true){
+        }else if(/(.jpg|.jpeg|.png|.gif|bmp|tiff|.jfif)$/i.test(file.value) != true){
             errors.file = 'Este archivo no es válido'
         }
 
