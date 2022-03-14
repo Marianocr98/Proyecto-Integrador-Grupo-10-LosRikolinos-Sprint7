@@ -35,8 +35,9 @@ window.addEventListener('load', function(){
         //description
         if(description.value == ''){
             errors.description = 'Este campo no puede estar vacio.'
-        }else if( title.value.length < 20){
-            errors.description = 'La descripcion debe tener al menos 20 caracteres'   
+        }else if( description.value.length < 20){
+            errors.description = 'La descripcion debe tener al menos 20 caracteres'
+                console.log(description.value.length)
             }
     
         if(Object.keys(errors).length >= 1){

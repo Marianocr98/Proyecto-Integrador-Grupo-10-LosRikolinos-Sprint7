@@ -81,6 +81,7 @@ form select {
     border-radius: 50% 50% 0 0;
     box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
     0 6px 20px 0 rgba(255, 255, 255, 0.19);
+    object-fit: cover;
 }
 .container-img h2 {
     background-color: rgba(0, 0, 0, 0.4);
@@ -147,6 +148,8 @@ hr{
         height: 100%;
         box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
         0 6px 20px 0 rgba(255, 255, 255, 0.19);
+        object-fit: cover;
+
     }
     .container-img img:hover {
         box-shadow: -9px 6px 20px 0 rgba(255, 255, 255, 0.19),
