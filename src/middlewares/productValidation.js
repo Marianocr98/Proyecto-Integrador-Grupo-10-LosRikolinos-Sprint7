@@ -16,7 +16,7 @@ const validationsProduct = [
 
     body('imgProductos').custom((value, { req }) => {
 		let file = req.file;
-		let acceptedExtensions = ['.jpg', '.png', '.gif','bmp','tiff', 'jpeg'];
+		let acceptedExtensions = ['.jpg', '.png', '.gif','bmp','.jfif','.tiff', '.jpeg'];
 		
 		if (!file) {
 			throw new Error('Debe subir una imagen');
