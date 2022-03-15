@@ -3,9 +3,11 @@ const path = require('path');
 const db = require('../database/models');
 const sequelize = db.sequelize;
 const {validationResult} = require('express-validator');
+const { Op } = require("sequelize");
 
 const Category = db.Category
 const Product = db.Product
+const amount =  db.Product.count();
 
 
 const productController = {
@@ -26,7 +28,8 @@ const productController = {
             .then(listProduct => {
                 db.Category.findAll()
                 .then( categories => {
-                    res.render('./admin/newProduct', {listProduct, categories})
+                    console.log(amount)
+                    res.render('./admin/newProduct', {listProduct, categories,amount})
                 })
                 .catch(error => res.send(error))
             })
@@ -101,7 +104,6 @@ const productController = {
     edit : (req,res)=>{
 
         const resultValidation = validationResult(req);
-
        let product = db.Product.findByPk(req.params.id);
        if(resultValidation.isEmpty()){
             db.Product.update({
