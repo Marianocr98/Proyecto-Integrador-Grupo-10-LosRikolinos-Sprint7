@@ -44,16 +44,16 @@
 
             <% productos.forEach(element => { %>
             
-            <article class="container-productos">
+            <article class=" item container-productos">
                     <a href="products/<%=element.id %>">
-                        <h4> <%= element.title  %> </h4>
+                        <h4 class = "item-title"> <%= element.title  %> </h4>
                     </a> 
                     <div class="container-img-barrita">
                         <div class="container-img">
                             <a href="products/<%=element.id %>">
-                                <img src= "/img/products/<%= element.image %> " alt="<%= element.imgDescription %> ">
+                                <img class = "item-image" src= "/img/products/<%= element.image %> " alt="<%= element.imgDescription %> ">
                             </a>
-                            <h2> $<%= element.price %>,00 </h2>
+                            <h2 class ="item-price"> $<%= element.price %>,00 </h2>
                         </div>
                         <div class="container-barrita">
                             <button>-</button>
@@ -67,7 +67,19 @@
             
         </section>
         
+        <section class="shopping-cart">
+            <div class="container ">
+                <h1 class="text-center">CARRITO</h1>
+                <hr>
+                <table class ="shoppingCartItemsContainer">
+                    <thead  >
+                        <tr>
+                            <th style = "text-align:center">Producto</th><th style = "text-align:center">Precio</th><th style = "text-align:center">Cantidad</th>
+                        </tr>
+                    </thead>
+                </table>
 
+            </div>
 
         
 
