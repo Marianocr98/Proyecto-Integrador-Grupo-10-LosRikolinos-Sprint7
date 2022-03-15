@@ -28,15 +28,16 @@ window.addEventListener('load', function(){
         //File
         if(file.value == ''){
             errors.file = 'Debe subir una imagen'
-        }else if(/(.jpg|.jpeg|.png|.gif|bmp|tiff)$/i.test(file.value) != true){
+        }else if(/(.jpg|.jpeg|.png|.gif|bmp|tiff|.jfif)$/i.test(file.value) != true){
             errors.file = 'Este archivo no es válido'
         }
 
         //description
         if(description.value == ''){
             errors.description = 'Este campo no puede estar vacio.'
-        }else if( title.value.length < 20){
-            errors.description = 'La descripcion debe tener al menos 20 caracteres'   
+        }else if( description.value.length < 20){
+            errors.description = 'La descripcion debe tener al menos 20 caracteres'
+                console.log(description.value.length)
             }
     
         if(Object.keys(errors).length >= 1){

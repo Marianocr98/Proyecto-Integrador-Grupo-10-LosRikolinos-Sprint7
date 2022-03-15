@@ -65,11 +65,11 @@ form select {
 }
 
 .container-img, .container-barrita {
-    width: 210px;
+    width: 300px;
 }
 
 .container-img{
-    height: 120px;
+    height: 210px;
     border-radius: 50% 50% 0 0;
     position: relative;
     
@@ -81,6 +81,7 @@ form select {
     border-radius: 50% 50% 0 0;
     box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
     0 6px 20px 0 rgba(255, 255, 255, 0.19);
+    object-fit: cover;
 }
 .container-img h2 {
     background-color: rgba(0, 0, 0, 0.4);
@@ -121,45 +122,5 @@ hr{
 } 
 
 @media (min-width: 769px) {
-    .container-title-form h2{
-        font-size: 45px;
-    }
-    .container-productos h4{
-        font-size: 32px;
-    }
-    form select{
-        font-size: 25px;
-    }
-    .container-productos {
-        width: 350px;
-        margin: 25px;
-    }
-    .container-img, .container-barrita {
-        width: 360px;
-    }
-    .container-img {
-        height: 220px;
-        border-radius: 50% 50% 0 0;
-        position: relative;
-    }
-    .container-img img {
-        width: 100%;
-        height: 100%;
-        box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
-        0 6px 20px 0 rgba(255, 255, 255, 0.19);
-    }
-    .container-img img:hover {
-        box-shadow: -9px 6px 20px 0 rgba(255, 255, 255, 0.19),
-        9px 6px 20px 0 rgba(255, 255, 255, 0.19);
-    }
-    .container-img h2 {
-        height: 40px;
-        font-size: 35px;
-    }
-    .container-barrita {
-        height: 40px;
-    }
-    .container-barrita button, p {
-        font-size: 30px;
-    }
+
 }
