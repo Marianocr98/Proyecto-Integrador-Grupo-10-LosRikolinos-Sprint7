@@ -15,8 +15,21 @@
                     <a href="/menu"> Menu</a>
                     <a href="#Nosotros">Nosotros</a>
                     <a href="#footer">Contacto</a>
+                    <% if (!locals.isLogged) { %>
+
                     <a href="/register"> Registrarse</a>
                     <a href="/login"> Iniciar Sesion</a>
+                    <% } %> 
+                    <% if (locals.isLogged && locals.userLogged.rol_id == 2) { %>
+
+                        <a href="/logout">Cerrar sesión</a> 
+                        <% } %> 
+                        <% if (locals.isLogged && locals.userLogged.rol_id == 1) { %>
+
+                            <a href="/createView">Crear Productos</a>
+                            <a href="/listOfProducts">Editar Productos</a>
+                            <a href="/logout">Cerrar sesión</a> 
+                            <% } %> 
                 </nav>
             </aside>
             <div class="container-burger-cart">
