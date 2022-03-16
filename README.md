@@ -1,5 +1,6 @@
  Presentable del link al tablero de trabajo del Sprint7 : 
-
+ 
+https://trello.com/b/qtcBLXYL/sprint-7
 
  Nuestros usuarios registrados:
 
