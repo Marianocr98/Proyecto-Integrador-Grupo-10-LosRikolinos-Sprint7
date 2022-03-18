@@ -232,3 +232,7 @@ button {
         width: 110px;
     }
 }
+
+.error{
+    color:rgb(236, 29, 29);
+}
