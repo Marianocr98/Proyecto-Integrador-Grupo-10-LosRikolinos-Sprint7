@@ -85,23 +85,7 @@ h2{
 }
 }
 
-.errorTitulo{
-    color: red;
-    font-size: 17px;
-}
-
-.errorPrice{
-    color: red;
-    font-size: 17px;
-}
-
-.errorImgProductos{
-    color: red;
-    font-size: 17px;
-    text-align: center;
-}
-
-.errorDescription{
+.error{
     color: red;
     font-size: 17px;
 }

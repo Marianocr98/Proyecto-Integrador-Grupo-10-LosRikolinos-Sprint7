@@ -52,17 +52,9 @@
                     
                     <!-- Errores front-->
                 <div class="error">
-                    <small class="text-danger errorTitulo"></small>
+                    <small class="text-danger errorTitle"></small>
                 </div>
-                <% if (typeof errors != 'undefined') { %>
-                    <% for( let i = 0; i < errors.length; i++ ) { %>
-                        <% if (errors[i].param == 'title') { %>
-                            <small class="text-danger"> <%= errors[i].msj %> </small>
-                        
-                        <% } %>
-                
-                <% } %>
-                <% } %>
+
                 </div>
                 
                 <div class="price-form">
@@ -80,15 +72,7 @@
                 <div class="error">
                     <small class="text-danger errorPrice"></small>
                 </div>
-                <% if (typeof errors != 'undefined') { %>
-                    <% for( let i = 0; i < errors.length; i++ ) { %>
-                        <% if (errors[i].param == 'price') { %>
-                            <small class="text-danger"> <%= errors[i].msj %> </small>
-                        
-                        <% } %>
-                
-                <% } %>
-                <% } %>
+
 
                 </div>
 
@@ -118,17 +102,9 @@
 
                             <!-- Errores front -->
                             <div class="error">
-                            <small class="text-danger errorImgProductos"></small>
+                            <small class="text-danger errorFile"></small>
                             </div>
-                            <% if (typeof errors != 'undefined') { %>
-                            <% for( let i = 0; i < errors.length; i++ ) { %>
-                                <% if (errors[i].param == 'file') { %>
-                                    <small class="text-danger"> <%= errors[i].msj %> </small>
-                                
-                                <% } %>
-                        
-                            <% } %>
-                            <% } %>
+
 
                         </div>
 
@@ -148,18 +124,7 @@
                 <div class="error">
                     <small class="text-danger errorDescription"></small>
                 </div>
-                <% if (typeof errors != 'undefined') { %>
-                    <% for( let i = 0; i < errors.length; i++ ) { %>
-                        <% if (errors[i].param == 'description') { %>
-                            <small class="text-danger"> <%= errors[i].msj %> </small>
-                        
-                        <% } %>
-                
-                <% } %>
-                <% } %>
-
-
-                </div>
+             </div>
 
             </div>
 
