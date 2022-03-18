@@ -24,7 +24,7 @@ window.addEventListener('load', function(){
 
     //Si el titulo no es válido se escribe el error
 
-    if(title.value.trim() == ''){
+    if(title.value == ''){
         error = 'Este campo debe estar completo'
     }else if(title.value.length < 5){
         error = 'El nombre debe tener al menos 5 caracteres'
@@ -51,7 +51,7 @@ window.addEventListener('load', function(){
         let error = '';
         let errorElement = price.nextElementSibling;
 
-        if(price.value.trim() == ''){
+        if(price.value == ''){
             error =  'Debes darle un precio'
         }
 
@@ -72,7 +72,7 @@ window.addEventListener('load', function(){
         let error = '';
         let errorElement = file.nextElementSibling;
 
-        if(file.value.trim() == ''){
+        if(file.value == ''){
             error = 'Debe subir una imagen'
         }else if (/(.jpg|.jpeg|.png|.gif|bmp|tiff|.jfif)$/i.test(file.value) != true){
             error = 'Este archivo no es válido'
@@ -95,7 +95,7 @@ window.addEventListener('load', function(){
         let error = '';
         let errorElement = description.nextElementSibling;
 
-        if(description.value.trim() == ''){
+        if(description.value == ''){
             error = 'Este campo no puede estar vacio.'
         }else if(description.value.length < 20){
             error = 'La descripcion debe tener al menos 20 caracteres'   
