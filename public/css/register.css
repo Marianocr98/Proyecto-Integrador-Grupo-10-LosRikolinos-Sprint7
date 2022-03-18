@@ -75,6 +75,7 @@ body {
     padding: 12px;
     width: 95%;
     margin: 20px auto;
+    border: 3px solid;
 }
 #avatar{
     font-size: 17px;
@@ -158,6 +159,7 @@ div.errores ul {
     text-align: center;
 }
 
-
-
-
+.error p{
+    color: red;
+    font-size: 18px;
+}

@@ -56,22 +56,14 @@
                 <input type="text" 
                 placeholder="Nombre de usuario" 
                 name="fullName" 
-                id="fullName"  
+                id="fullName"
+                autocomplete="additional-name" 
                 value="<%= locals.oldData ? oldData.fullName : null %>">
 
-                <!-- Errores -->
+                <!-- Errores front-->
                 <div class="error">
                     <small class="text-danger errorFN"></small>
                 </div>
-                <% if (typeof errors != 'undefined') { %>
-                    <% for( let i = 0; i < errors.length; i++ ) { %>
-                        <% if (errors[i].param == 'fullName') { %>
-                            <small class="text-danger"> <%= errors[i].msj %> </small>
-                        
-                        <% } %>
-                
-                <% } %>
-                <% } %>
                 
                 <%if(locals.errors && errors.fullName) { %>
                     <div class="text-danger">
@@ -86,22 +78,14 @@
                 type="email" 
                 placeholder="Correo electronico" 
                 name="email" 
-                id="email" 
+                id="email"
+                autocomplete="additional-name" 
                 value="<%= locals.oldData ? oldData.email : null %>">
 
-                <!-- Errores -->
+                <!-- Errores front-->
                 <div class="error">
                     <small class="text-danger errorEmail"></small>
                 </div>
-                <% if (typeof errors != 'undefined') { %>
-                    <% for( let i = 0; i < errors.length; i++ ) { %>
-                        <% if (errors[i].param == 'email') { %>
-                            <small class="text-danger"> <%= errors[i].msj %> </small>
-                         
-                        <% } %>
-                 
-                <% } %>
-                <% } %>
 
                 <%if(locals.errors && errors.email) { %>
                     <div class="text-danger">
@@ -114,22 +98,14 @@
                     type="password" 
                     placeholder="Escribe tu contraseña" 
                     name="password" 
-                    id="password" 
+                    id="password"
+                    autocomplete="additional-name"
                     value="<%= locals.oldData ? oldData.password : null %>" >
 
-                    <!-- Errores -->
+                    <!-- Errores front-->
                     <div class="error">
                         <small class="text-danger errorPassword"></small>
                     </div>
-                    <% if (typeof errors != 'undefined') { %>
-                        <% for( let i = 0; i < errors.length; i++ ) { %>
-                            <% if (errors[i].param == 'password') { %>
-                                <small class="text-danger"> <%= errors[i].msj %> </small>
-                             
-                            <% } %>
-                     
-                    <% } %>
-                    <% } %>
 
                     <%if(locals.errors && errors.password) { %>
                         <div class="text-danger">
@@ -142,22 +118,14 @@
                     type="password" 
                     placeholder="Confirmar tu contraseña" 
                     name="confirm" 
-                    id="confirm" 
+                    id="confirm"
+                    autocomplete="additional-name" 
                     value="<%= locals.oldData ? oldData.confirm : null %>" >
 
-                    <!-- Errores -->
+                    <!-- Errores front-->
                     <div class="error">
                         <small class="text-danger errorConfirm"></small>
                     </div>
-                    <% if (typeof errors != 'undefined') { %>
-                        <% for( let i = 0; i < errors.length; i++ ) { %>
-                            <% if (errors[i].param == 'confirm') { %>
-                                <small class="text-danger"> <%= errors[i].msj %> </small>
-                             
-                            <% } %>
-                     
-                    <% } %>
-                    <% } %>
 
                     <%if(locals.errors && errors.confirm) { %>
                         <div class="text-danger">
@@ -169,22 +137,14 @@
                     <input 
                     type="file" 
                     name="avatar" 
-                    id="avatar" 
+                    id="avatar"
                     value="<%= locals.oldData ? oldData.avatar : null %>">
 
-                    <!-- Errores -->
+                    <!-- Errores front-->
                     <div class="error">
                         <small class="text-danger errorAvatar"></small>
                     </div>
-                    <% if (typeof errors != 'undefined') { %>
-                        <% for( let i = 0; i < errors.length; i++ ) { %>
-                            <% if (errors[i].param == 'avatar') { %>
-                                <small class="text-danger"> <%= errors[i].msj %> </small>
-                             
-                            <% } %>
-                     
-                    <% } %>
-                    <% } %>
+
                     <% if (locals.errors && errors.avatar) { %>
                         <div class="text-danger">
                             <%= errors.avatar.msg %>

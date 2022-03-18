@@ -1,6 +1,7 @@
 window.addEventListener('load', function(){
 
-let form = document.querySelector('.form');
+//seleccion del formulario
+let form = document.querySelector('.form')
 let fullName = document.querySelector('#fullName');
 let errorFN = document.querySelector(".errorFN");
 let email = document.querySelector('#email');
@@ -11,56 +12,112 @@ let confirmPassword = document.querySelector('#confirm');
 let errorConfirm = document.querySelector(".errorConfirm");
 let avatar = document.querySelector('#avatar');
 let errorAvatar = document.querySelector(".errorAvatar");
-let buton = document.querySelector('.buton');
 
-buton.addEventListener('click', function(e){
-    e.preventDefault();
-    let errors = []
+//errores de los inputs
+let errors_fullName = undefined;
+let errors_email = undefined;
+let errors_password = undefined;
+let errors_confirm = undefined;
+let errors_avatar = undefined;
 
-    //fullName
+//eventos para fullName
+
+fullName.addEventListener('focus', function(e){
     if(fullName.value == ''){
-        errors.fullName = 'Este campo debe estar completo'
+        errors_fullName = 'Este campo debe estar completo';
     }else if( fullName.value.length < 2){
-        errors.fullName = 'El usuario debe tener al menos 2 caracteres'   
+        errors_fullName = 'El usuario debe tener al menos 2 caracteres';  
         }
-    //email
+        if(errors_fullName != undefined){
+            errorFN.innerHTML = "<p>" + errors_fullName + "</p>";
+            fullName.style.borderColor = 'red';
+        }
+    });
+fullName.addEventListener('change', function(e){
+    if(fullName.value.length > 2){
+        errorFN.innerHTML = "<p>" + " " + "</p>";
+        fullName.style.borderColor = 'green';
+    }
+});
+//eventos para email
+email.addEventListener('focus', function(e){
     if(email.value == ''){
-        errors.email = 'Este campo debe estar completo'
+        errors_email= 'Este campo debe estar completo'
     }else if(/\b[a-z0-9-_.]+@[a-z0-9-_.]+(\.[a-z0-9]+)+/i.test(email.value) != true){
-        errors.email = 'El email debe ser válido'
+        errors_email = 'El email debe ser válido'
     }
-    //password
+    if(errors_email != undefined){
+        errorEmail.innerHTML = "<p>" + errors_email + "</p>";
+        email.style.borderColor = 'red';
+    }
+});
+email.addEventListener('change', function(e){
+    if(/\b[a-z0-9-_.]+@[a-z0-9-_.]+(\.[a-z0-9]+)+/i.test(email.value) == true){
+        errorEmail.innerHTML = "<p>" + " " + "</p>";
+        email.style.borderColor = 'green';
+    }
+})
+//eventos para password
+password.addEventListener('focus', function(e){
     if(password.value == ''){
-        errors.password = 'Este campo debe estar completo'
+        errors_password = 'Este campo debe estar completo'
     }else if(password.value.length <= 8){
-        errors.password = 'La contraseña debe tener al menos 8 caracteres'   
-        }
-    //confirmPassword
+        errors_password = 'La contraseña debe tener al menos 8 caracteres'   
+    }
+    if(errors_password != undefined){
+        errorPassword.innerHTML = "<p>" + errors_password + "</p>";
+        password.style.borderColor = 'red'; 
+    }
+});
+password.addEventListener('change', function(e){
+    if(password.value.length > 7){
+        errorPassword.innerHTML = "<p>" + " " + "</p>";
+        password.style.borderColor = 'green';
+    }
+});
+//eventos para confirmPassword
+confirmPassword.addEventListener('focus', function(e){
     if(confirmPassword.value == ''){
-        errors.confirmPassword = 'Confirmar contraseña'
+        errors_confirm = 'Confirmar contraseña'
     }else if(password.value != confirmPassword.value){
-        errors.confirmPassword = 'Las contraseñas deben coincidir'
+        errors_confirm = 'Las contraseñas deben coincidir'
     }
-    //avatar
+    if(errors_confirm != undefined){
+        errorConfirm.innerHTML = "<p>" + errors_confirm + "</p>";
+        confirmPassword.style.borderColor = 'red';
+    }
+});
+confirmPassword.addEventListener('change', function(e){
+ if(password.value == confirmPassword.value){
+        errorConfirm.innerHTML = "<p>" + " " + "</p>";
+        confirmPassword.style.borderColor = 'green';
+    }
+})
+//eventos para avatar
+avatar.addEventListener('focus', function(e){
     if(avatar.value == ''){
-        errors.avatar = 'Debe subir una imagen'
+        errors_avatar = 'Debe subir una imagen'
     }else if(/(.jpg|.jpeg|.png|.gif|bmp|tiff)$/i.test(avatar.value) != true){
-        errors.avatar = 'Este archivo no es válido'
+        errors_avatar = 'Este archivo no es válido'
     }
-
-    if(Object.keys(errors).length >= 1){
-        errorFN.innerText = (errors.fullName) ? errors.fullName : '';
-
-        errorEmail.innerText = (errors.email) ? errors.email : '';
-
-        errorPassword.innerText = (errors.password) ? errors.password : '';
-
-        errorConfirm.innerText = (errors.confirmPassword) ? errors.confirmPassword : '';
-
-        errorAvatar.innerText = (errors.avatar) ? errors.avatar : '';
+    if(errors_avatar != undefined){
+        errorAvatar.innerHTML = "<p>" + errors_avatar + "</p>";
+        avatar.style.borderColor = 'red';
+    }
+});
+avatar.addEventListener('change', function(e){
+    if(/(.jpg|.jpeg|.png|.gif|bmp|tiff)$/i.test(avatar.value) == true){
+        errorAvatar.innerHTML = "<p>" + " " + "</p>";
+        avatar.style.borderColor = 'green';
+    }
+});
+form.addEventListener('submit', function(e){
+    e.preventDefault();
+    let errores = {};
+    if(Object.keys(errores).length > 0){
+        console.log(errores)
     }else{
         form.submit();
     }
 })
-
 })

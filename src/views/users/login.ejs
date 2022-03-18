@@ -44,21 +44,12 @@
             <!-- Poner nombre de usuario  -->
             <div class="padre-input">
                 <label for="nombre"></label>
-                <input type="email" placeholder="Tu e-mail" name="email" id="nombre" class="form-control">
+                <input type="email" placeholder="Tu e-mail" name="email" id="nombre" autocomplete="additional-name">
 
                 <!-- Errores -->
                 <div class="error">
                     <small class="text-danger errorEmail"></small>
                 </div>
-                <% if (typeof errors != 'undefined') { %>
-                    <% for( let i = 0; i < errors.length; i++ ) { %>
-                        <% if (errors[i].param == 'email') { %>
-                            <small class="text-danger"> <%= errors[i].msj %> </small>
-                        
-                        <% } %>
-
-                <% } %>
-                <% } %>
                 <% if (locals.errors && errors.email) { %>
                     <div class="text-danger"> 
                         <%= errors.email.msg  %> 
@@ -68,21 +59,13 @@
                 <!-- Poner contraseña  -->
             <div class="padre-input">
                 <label for="password"></label>
-                <input type="password" placeholder="Tu contraseña" name="password" id="password">
+                <input type="password" placeholder="Tu contraseña" name="password" id="password" autocomplete="additional-name">
 
                 <!-- Errores -->
                 <div class="error">
                     <small class="text-danger errorPassword"></small>
                 </div>
-                <% if (typeof errors != 'undefined') { %>
-                    <% for( let i = 0; i < errors.length; i++ ) { %>
-                        <% if (errors[i].param == 'password') { %>
-                            <small class="text-danger"> <%= errors[i].msj %> </small>
-                         
-                        <% } %>
-                 
-                <% } %>
-                <% } %>
+
             </div>
             <!-- Boton de inicio de sesión  -->
             <div class="olvidaste-contra">
