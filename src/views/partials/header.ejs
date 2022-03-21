@@ -17,18 +17,18 @@
                     <a href="#footer">Contacto</a>
                     <% if (!locals.isLogged) { %>
 
-                    <a href="/register"> Registrarse</a>
-                    <a href="/login"> Iniciar Sesion</a>
+                    <a href="/register"> Registrarse &#9993 &#9997</a>
+                    <a href="/login"> Iniciar Sesion &#127762</a>
                     <% } %> 
                     <% if (locals.isLogged && locals.userLogged.rol_id == 2) { %>
 
-                        <a href="/logout">Cerrar sesión</a> 
+                        <a href="/logout">Cerrar sesión &#127768</a> 
                         <% } %> 
                         <% if (locals.isLogged && locals.userLogged.rol_id == 1) { %>
 
-                            <a href="/createView">Crear Productos</a>
-                            <a href="/listOfProducts">Editar Productos</a>
-                            <a href="/logout">Cerrar sesión</a> 
+                            <a href="/createView">Crear Producto &#127869 &#9997</a>
+                            <a href="/listOfProducts">Editar Producto &#127869 &#9997</a>
+                            <a href="/logout">Cerrar sesión &#127768</a> 
                             <% } %> 
                 </nav>
             </aside>
@@ -52,17 +52,17 @@
                                     <a href="/profile"> <img src="/img/avatars/<%= locals.userLogged.avatar %>" alt="imagen usuario" class="avatarImg" ></a>
                                 </div>
                             
-                            <ul class="submenu">
+                            <ul class="submenu" style="width:350%">
 
                                 <%  if (locals.isLogged && locals.userLogged.rol_id == 1) { %> 
-                                <li><a href="/profile">Mi Perfil</a> </li> 
-                                <li><a href="/createView">Crear Productos</a></li>
-                                <li><a href="/listOfProducts">Editar Productos</a></li>
-                                <li><a href="/logout">Cerrar sesión</a> </li>
+                                <li><a href="/profile">Mi Perfil &#128526</a> </li> 
+                                <li><a href="/createView">Crear Producto &#127869 &#9997</a></li>
+                                <li><a href="/listOfProducts">Editar Producto &#127869 &#9997</a></li>
+                                <li><a href="/logout">Cerrar sesión &#127768</a> </li>
                                 
                                 <% } else {%> 
-                                    <li><a href="/profile">Mi Perfil</a> </li> 
-                                    <li><a href="/logout">Cerrar sesión</a> </li>
+                                    <li><a href="/profile">Mi Perfil &#128526</a> </li> 
+                                    <li><a href="/logout">Cerrar sesión &#127768</a> </li>
                                 
                                 <% } %> 
                                 
@@ -71,14 +71,14 @@
                         
                         <% }else{ %> 
                         <li><a href="/login"><i class="far fa-user-circle"></i></a>
-                            <ul class="submenu">
+                            <ul class="submenu" style="width:250%">
 
                                 <%  if (locals.isLogged) {%> 
-                                <li><a href="/profile">Mi Perfil</a> </li> 
-                                <li><a href="/logout">Cerrar sesión</a> </li>
+                                <li><a href="/profile">Mi Perfil &#128526</a> </li> 
+                                <li><a href="/logout">Cerrar sesión &#127768</a> </li>
                                 <% } else {%> 
-                                <li><a href="/login">Iniciar sesión</a></li>
-                                <li><a href="/register">Registrarse</a></li>
+                                <li><a href="/login">Iniciar sesión &#127762</a></li>
+                                <li><a href="/register">Registrarse &#9993 &#9997</a></li>
                                 <% } %> 
                                 
                             </ul>
@@ -106,12 +106,12 @@
                     <li><a href="/menu">Menu</a>
                         <ul class="submenu-menu">
 
-                            <li> <a href="/menu/1">Hamburguesas </a> </li>
-                            <li> <a href="/menu/2">Pizzas </a> </li>
-                            <li> <a href="/menu/3">Pastas </a> </li>
-                            <li> <a href="/menu/4">Empanadas </a> </li>
-                            <li> <a href="/menu/5">Asado  </a> </li>
-                            <li> <a href="/menu/6">Bebidas </a> </li>
+                            <li> <a href="/menu/1">Hamburguesas &#127828</a> </li>
+                            <li> <a href="/menu/2">Pizzas &#127829</a> </li>
+                            <li> <a href="/menu/3">Pastas &#127837</a> </li>
+                            <li> <a href="/menu/4">Empanadas &#129375</a> </li>
+                            <li> <a href="/menu/5">Asado &#129385</a> </li>
+                            <li> <a href="/menu/6">Bebidas &#127867</a> </li>
 
                         </ul>
                     </li>

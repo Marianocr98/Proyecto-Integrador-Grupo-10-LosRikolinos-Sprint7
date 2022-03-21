@@ -125,5 +125,4 @@ price.addEventListener('blur', priceValidator);
 file.addEventListener('blur', fileValidator);
 description.addEventListener('blur', descriptionValidator);
     
-})
-    
+}) 

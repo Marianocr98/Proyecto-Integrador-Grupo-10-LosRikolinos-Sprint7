@@ -617,6 +617,7 @@ body {
     }
     
     .menu li a:hover{
+        background: #ffffff;
         color: #CE7D35;
         transition: all .3s;
     }
@@ -626,12 +627,14 @@ body {
     .submenu{
         position: absolute;
         right: 5px;
-        background: #333333;
-        width: 250%;
+        background: #000;
+        max-width: 350%;
         visibility: hidden;
         opacity: 0;
         transition: opacity 1.5s;
         z-index: 1;
+        border-radius: 10px 0 10px 10px;
+        border: 2px solid #8a2724;
     }
     
     .name-user {
@@ -647,6 +650,7 @@ body {
         top: 14px;
         width: 45px; 
         height: 45px;
+        object-fit: cover;
     }
 
     li{
@@ -655,11 +659,19 @@ body {
 
     .submenu li a{
         display: block;
-        color: #fff;
+        color: rgb(255, 255, 255);
+        background: rgba(0, 0, 0, 0);
         padding:15px 20px;
         font-size:15px;
         font-family: 'Open sans';
         text-decoration: none;
+        border-radius: 10px 0 10px 10px;
+    }
+    .submenu li:hover{
+        color: #CE7D35;
+        transition: all .3s;
+        border-radius: 10px 0 10px 10px;
+        border: 2px solid #8a2724;
     }
     
     .menu li:hover .submenu{
@@ -670,12 +682,8 @@ body {
         display: none;
     }
     .hamburger{
-        display: none;
-
+        display: none; 
     }
-
-
-    
     .navegacion ul{
         list-style: none;
     }
@@ -688,7 +696,7 @@ body {
     .menu-nav > li > a{
         display: block;
         padding: 15px 20px;
-        color: #ffffff;
+        color: #fff;
         font-family: 'Open sans';
         text-decoration: none;
     }
@@ -702,11 +710,13 @@ body {
     
     .submenu-menu{
         position: absolute;
-        background: #333333;
-        width: 120%;
+        background: #000;
+        border: 2px solid #8a2724;
+        width: 170%;
         visibility: hidden;
         opacity: 0;
         transition: opacity 1.5s;
+        border-radius: 0 10px 10px 10px;
     }
     
     .submenu-menu li a{
@@ -716,6 +726,13 @@ body {
         font-family: 'Open sans';
         font-size: 12px;
         text-decoration: none;
+    }
+    .submenu-menu li:hover{
+        color: #CE7D35;
+        transition: all .3s;
+        background:#fff;
+        border-radius: 0 10px 10px 10px;
+        border: 2px solid #8a2724;
     }
     
     .menu-nav li:hover .submenu-menu{

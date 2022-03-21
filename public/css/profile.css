@@ -58,12 +58,14 @@ button{
 }
 
 .img-profile{
-    width: 360px;
-    border-radius: 100%;
-    
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 .box-img-profile{
     width: 100%;
+    text-align: center;
 }
 @media (min-width : 769px){
     .container-profile{
