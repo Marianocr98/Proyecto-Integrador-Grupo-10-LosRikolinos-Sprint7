@@ -20,13 +20,15 @@ let errors_password = undefined;
 let errors_confirm = undefined;
 let errors_avatar = undefined;
 
+
+
 //eventos para fullName
 
-fullName.addEventListener('focus', function(e){
-    if(fullName.value == ''){
-        errors_fullName = 'Este campo debe estar completo';
+fullName.addEventListener('change', function(e){
+    if(fullName.value.length < 1){
+        errors_fullName = '&#10005 Este campo debe estar completo &#128564';
     }else if( fullName.value.length < 2){
-        errors_fullName = 'El usuario debe tener al menos 2 caracteres';  
+        errors_fullName = '&#10005 El usuario debe tener al menos 2 caracteres &#128533';  
         }
         if(errors_fullName != undefined){
             errorFN.innerHTML = "<p>" + errors_fullName + "</p>";
@@ -35,16 +37,16 @@ fullName.addEventListener('focus', function(e){
     });
 fullName.addEventListener('change', function(e){
     if(fullName.value.length > 2){
-        errorFN.innerHTML = "<p>" + " " + "</p>";
+        errorFN.innerHTML = "<p>" + "" + "</p>";
         fullName.style.borderColor = 'green';
     }
 });
 //eventos para email
-email.addEventListener('focus', function(e){
-    if(email.value == ''){
-        errors_email= 'Este campo debe estar completo'
+email.addEventListener('change', function(e){
+    if(email.value.length < 1){
+        errors_email= '&#10005 Este campo debe estar completo &#128564'
     }else if(/\b[a-z0-9-_.]+@[a-z0-9-_.]+(\.[a-z0-9]+)+/i.test(email.value) != true){
-        errors_email = 'El email debe ser válido'
+        errors_email = '&#10005 Este email no es válido &#128078'
     }
     if(errors_email != undefined){
         errorEmail.innerHTML = "<p>" + errors_email + "</p>";
@@ -53,16 +55,16 @@ email.addEventListener('focus', function(e){
 });
 email.addEventListener('change', function(e){
     if(/\b[a-z0-9-_.]+@[a-z0-9-_.]+(\.[a-z0-9]+)+/i.test(email.value) == true){
-        errorEmail.innerHTML = "<p>" + " " + "</p>";
+        errorEmail.innerHTML = "<p>" + "" + "</p>";
         email.style.borderColor = 'green';
     }
 })
 //eventos para password
-password.addEventListener('focus', function(e){
-    if(password.value == ''){
-        errors_password = 'Este campo debe estar completo'
-    }else if(password.value.length <= 8){
-        errors_password = 'La contraseña debe tener al menos 8 caracteres'   
+password.addEventListener('change', function(e){
+    if(password.value.length < 1){
+        errors_password = '&#10005 Este campo debe estar completo &#128564'
+    }else if(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/i.test(password.value) != true){
+        errors_password = '&#10005 La contraseña debe tener al menos 8 caracteres &#128531, al menos una mayúscula, una minúscula, un número y un caracter especial &#128588;'
     }
     if(errors_password != undefined){
         errorPassword.innerHTML = "<p>" + errors_password + "</p>";
@@ -70,17 +72,20 @@ password.addEventListener('focus', function(e){
     }
 });
 password.addEventListener('change', function(e){
-    if(password.value.length > 7){
+    if(errors_password == undefined){
+        errorPassword.innerHTML = "<p>" + " " + "</p>";
+        password.style.borderColor = 'green';
+    }else if(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/i.test(password.value) == true){
         errorPassword.innerHTML = "<p>" + " " + "</p>";
         password.style.borderColor = 'green';
     }
 });
 //eventos para confirmPassword
-confirmPassword.addEventListener('focus', function(e){
-    if(confirmPassword.value == ''){
-        errors_confirm = 'Confirmar contraseña'
+confirmPassword.addEventListener('change', function(e){
+    if(confirmPassword.value.length < 1){
+        errors_confirm = '&#10005 Debe confirmar su contraseña &#128556'
     }else if(password.value != confirmPassword.value){
-        errors_confirm = 'Las contraseñas deben coincidir'
+        errors_confirm = '&#10005 Las contraseñas deben coincidir &#129313'
     }
     if(errors_confirm != undefined){
         errorConfirm.innerHTML = "<p>" + errors_confirm + "</p>";
@@ -88,17 +93,17 @@ confirmPassword.addEventListener('focus', function(e){
     }
 });
 confirmPassword.addEventListener('change', function(e){
- if(password.value == confirmPassword.value){
-        errorConfirm.innerHTML = "<p>" + " " + "</p>";
+    if(password.value == confirmPassword.value){
+        errorConfirm.innerHTML = "<p>" + "" + "</p>";
         confirmPassword.style.borderColor = 'green';
     }
 })
 //eventos para avatar
-avatar.addEventListener('focus', function(e){
+avatar.addEventListener('change', function(e){
     if(avatar.value == ''){
-        errors_avatar = 'Debe subir una imagen'
+        errors_avatar = '&#10005 Debe subir una imagen &#128579'
     }else if(/(.jpg|.jpeg|.png|.gif|bmp|tiff)$/i.test(avatar.value) != true){
-        errors_avatar = 'Este archivo no es válido'
+        errors_avatar = '&#10005 Este archivo no es válido &#128078'
     }
     if(errors_avatar != undefined){
         errorAvatar.innerHTML = "<p>" + errors_avatar + "</p>";
@@ -107,7 +112,7 @@ avatar.addEventListener('focus', function(e){
 });
 avatar.addEventListener('change', function(e){
     if(/(.jpg|.jpeg|.png|.gif|bmp|tiff)$/i.test(avatar.value) == true){
-        errorAvatar.innerHTML = "<p>" + " " + "</p>";
+        errorAvatar.innerHTML = "<p>" + "" + "</p>";
         avatar.style.borderColor = 'green';
     }
 });

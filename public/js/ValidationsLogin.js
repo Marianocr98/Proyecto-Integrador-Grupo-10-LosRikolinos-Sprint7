@@ -4,16 +4,17 @@ window.addEventListener('load', function(){
     let logEmail = document.querySelector('#nombre');
     let errorEmail = document.querySelector(".errorEmail");
     let password = document.querySelector('#password');
+    let eye = document.querySelector('.pwd .fa-eye-slash');
     let errorPassword = document.querySelector(".errorPassword");
 //errores de los inputs
     let errors_email = undefined;
     let errors_password = undefined;
 //eventos para email   
-    logEmail.addEventListener('focus', function(e){
+    logEmail.addEventListener('change', function(e){
         if(logEmail.value.length < 1){
-            errors_email = 'Este campo debe estar completo'
+            errors_email = '&#10005 Este campo debe estar completo &#10071'
         }else if(/\b[a-z0-9-_.]+@[a-z0-9-_.]+(\.[a-z0-9]+)+/i.test(logEmail.value) != true){
-            errors_email = 'El email debe ser válido'
+            errors_email = '&#10005 Este email no es válido &#9993'
         }
         if(errors_email != undefined){
             errorEmail.innerHTML = "<p>" + errors_email + "</p>";
@@ -27,10 +28,10 @@ window.addEventListener('load', function(){
         }
     });
 //eventos para password
-    password.addEventListener('focus', function(e){
+    password.addEventListener('change', function(e){
 
         if(password.value.length < 1){
-            errors_password = 'Este campo debe estar completo' 
+            errors_password = '&#10005 Este campo es obligatorio &#10071' 
         }
         if(errors_password != undefined){
             errorPassword.innerHTML = "<p>" + errors_password + "</p>";
@@ -42,6 +43,23 @@ window.addEventListener('load', function(){
             errorPassword.innerHTML = "<p>" + " " + "</p>";
             password.style.borderColor = 'green';
         }
+    });
+    //evento para mostrar contraseña
+    eye.addEventListener('click', ()=>{
+        //Si la contraseña esta oculta...
+        if(password.type === 'password'){
+            //Mostrar en texto
+            password.type = 'text';
+            //Alteracion de iconos
+            eye.classList.remove('fa-eye-slash');
+            eye.classList.add('fa-eye');
+        }else{
+            //para ver en tipo password, oculta
+            password.type = 'password';
+            //alteracion de iconos
+            eye.classList.remove('fa-eye');
+            eye.classList.add('fa-eye-slash');
+        }    
     });
     form.addEventListener('submit', function(e){
         e.preventDefault();

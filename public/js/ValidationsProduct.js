@@ -2,14 +2,14 @@ window.addEventListener('load', function(){
 
     let errores = {};
 
-    const form = document.querySelector('.form');
-    const title = document.querySelector('#name-product');
+    let form = document.querySelector('.form');
+    let title = document.querySelector('#name-product');
 
-    const price = document.querySelector('#price');
+    let price = document.querySelector('#price');
 
-    const file = document.querySelector('#file');
+    let file = document.querySelector('#file');
 
-    const description = document.querySelector('#description');
+    let description = document.querySelector('#description');
 
 
     console.log(title);
@@ -52,7 +52,7 @@ window.addEventListener('load', function(){
         let errorElement = price.nextElementSibling;
 
         if(price.value == ''){
-            error =  'Debes darle un precio'
+            error =  'El campo de precio no puede estar vacio'
         }
 
         if(error){
@@ -98,7 +98,7 @@ window.addEventListener('load', function(){
         if(description.value == ''){
             error = 'Este campo no puede estar vacio.'
         }else if(description.value.length < 20){
-            error = 'La descripcion debe tener al menos 20 caracteres'   
+            error = 'La descripción debe tener al menos 20 caracteres'   
         }
         if(error){
             description.classList.add('errorDescription');
