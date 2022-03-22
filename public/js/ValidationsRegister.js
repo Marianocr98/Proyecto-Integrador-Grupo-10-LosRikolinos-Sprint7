@@ -103,11 +103,13 @@ avatar.addEventListener('change', function(e){
     if(avatar.value == ''){
         errors_avatar = '&#10005 Debe subir una imagen &#128579'
     }else if(/(.jpg|.jpeg|.png|.gif|bmp|tiff)$/i.test(avatar.value) != true){
-        errors_avatar = '&#10005 Este archivo no es válido &#128078'
+        errors_avatar = '&#10005 Archivo no válido. Las extensiones de archivo permitidas son: jpg, jpeg, png, gif, bmp y tiff &#128078'
+        avatar.value = ''
     }
     if(errors_avatar != undefined){
         errorAvatar.innerHTML = "<p>" + errors_avatar + "</p>";
         avatar.style.borderColor = 'red';
+
     }
 });
 avatar.addEventListener('change', function(e){
