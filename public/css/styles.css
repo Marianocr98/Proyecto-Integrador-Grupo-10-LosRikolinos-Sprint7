@@ -611,7 +611,6 @@ body {
     .menu > li > a{
         display: block;
         padding: 15px 20px;
-        color: #353535;
         font-family: 'Open sans';
         text-decoration: none;
     }

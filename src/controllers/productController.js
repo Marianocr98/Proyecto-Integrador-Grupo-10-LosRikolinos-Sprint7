@@ -44,35 +44,40 @@ const productController = {
 
     createProduct:(req,res)=>{
         const resultValidation = validationResult(req);
+        let product = db.Product.findByPk(req.params.id);
 
         if(resultValidation.isEmpty()){
-            let product = {
-                title: req.body.title,
-                image: req.file.filename,
-                description: req.body.description,
-                price: Number(req.body.price),
-                section: "productos",
-                category_id: req.body.category
-            }
-            if(req.file){
-                product.image = req.file.filename
-            }
-            Product.create(product)
-            .then(()=>{
-                return res.redirect('/listOfProducts')
-            })
-        }else{
-            let categories = Category.findAll();
+            db.Product.create({
+            title: req.body.title,
+            description: req.body.description,
+            price: req.body.price,
+            category_id: req.body.category,
+            image: req.file != null ? req.file.filename : product.image
+        },
+        {
+            where: {id:req.params.id}
+        })
+        .then( () => {
+            res.redirect('/listOfProducts');
+        })
+    }else{
+        let categories = Category.findAll();
 
-            Promise
-            .all([categories])
-            .then(([categories]) =>{
-                res.render('./admin/admin', 
-                {user: req.session.user, 
-                    categories, 
-                    errors : resultValidation.mapped()})
-            })
-        }
+        let producto = Product.findAll();
+
+        Promise
+        .all([producto, categories])
+        .then(([producto, categories]) =>{
+            res.render('./admin/admin', 
+            {user: req.session.user,
+                producto,
+                categories, 
+                errors : resultValidation.mapped()})
+        })
+        .catch(error => res.send(error))
+    }
+
+        
         /*db.Product.create({
         title: req.body.title,
         image: req.file.filename,
@@ -133,6 +138,7 @@ const productController = {
                 categories, 
                 errors : resultValidation.mapped()})
         })
+        .catch(error => res.send(error))
     }
     },
 

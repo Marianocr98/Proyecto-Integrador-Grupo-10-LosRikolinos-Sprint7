@@ -172,6 +172,7 @@ button {
     background-color: red;
 }
 
+
 @media (min-width: 769px) 
 {
 
@@ -235,4 +236,5 @@ button {
 
 .error{
     color:rgb(236, 29, 29);
+    width: 100%;
 }
